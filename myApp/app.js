@@ -19,13 +19,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-/* rutas*/
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
-app.get("/", (req, res) => res.sendFile(path.resolve(__dirname, "views", "index.html")))
-app.get("/contact", (req, res) => res.sendFile(path.resolve(__dirname, "views", "contact.html")))
-app.get("/about", (req, res) => res.sendFile(path.resolve(__dirname, "views", "about.html")))
-app.get("/music", (req, res) => res.sendFile(path.resolve(__dirname, "views", "music.html")))
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
